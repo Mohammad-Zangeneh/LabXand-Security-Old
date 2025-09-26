@@ -1,0 +1,45 @@
+﻿div.img {
+  
+    float: right;
+    width: 90px;
+    height:110px;
+    margin-top:0px;
+    
+}
+div.img img {
+    width: 90px;
+    height: 70px;
+}
+div.desc {
+     white-space: nowrap;
+    margin-top:0px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.file-preview-frame {
+    position: relative;
+    display: table;
+    margin: 8px;
+    height: 70px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0 #a2958a;
+    padding: 6px;
+    float: right;
+
+}
+.file-preview {
+    border-radius: 5px;
+    overflow:overlay;
+    border: 1px solid #ddd;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+#receiveDate
+{
+    width:100%;
+}
+
+

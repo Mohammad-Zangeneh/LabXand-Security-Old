@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{23CAFEC0-D991-4AB3-9083-B45358285F0B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kms.Security.DistributedService</RootNamespace>
+    <AssemblyName>Kms.Security.DistributedService</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LabXand.DistributedServices">
+      <HintPath>C:\Libs\LabXand.DistributedServices.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.DistributedServices.Wcf">
+      <HintPath>C:\Libs\LabXand.DistributedServices.Wcf.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.DomainLayer">
+      <HintPath>C:\Libs\LabXand.DomainLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.DomainLayer.Core">
+      <HintPath>C:\Libs\LabXand.DomainLayer.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.Infrastructure.Data">
+      <HintPath>C:\Libs\LabXand.Infrastructure.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.Logging.Core">
+      <HintPath>C:\Libs\LabXand.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.Security.Core">
+      <HintPath>C:\Libs\LabXand\LabXand.Security.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WorkFlow.Security">
+      <HintPath>C:\Libs\WorkFlow\WorkFlow.Security.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="KmsTraceDataEntityMapper.cs" />
+    <Compile Include="KmsApplicationServiceBase.cs" />
+    <Compile Include="KmsSecurityEnabledApplicationServiceBase.cs" />
+    <Compile Include="KmsUserValidator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kms.Security.Core\Kms.Security.Core.csproj">
+      <Project>{b81fcf21-c8ac-4cdc-bfaf-5d34cf6b8fce}</Project>
+      <Name>Kms.Security.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "C:\Libs\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

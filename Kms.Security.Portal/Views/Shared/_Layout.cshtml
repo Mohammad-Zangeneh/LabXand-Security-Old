@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/mdl-v1.1.2/material.css" rel="stylesheet" />
+    <link href="~/Content/KMS/icon.css" rel="stylesheet" />
+    <script src="~/Content/mdl-v1.1.2/material.js"></script>
+    <title>@ViewBag.Title</title>
+
+    <!-- #region ********************************** Extenders ******************************************-->
+    <script src="~/app/extender/extender.js"></script>
+    <script src="~/app/extender/dateExtender.js"></script>
+    <script src="~/app/extender/arrayExtender.js"></script>
+    <!-- #region **********************************  Core ****************************************-->
+    <script src="~/app/configuration/config.js"></script>
+    <script src="~/app/core/enums/enums.js"></script>
+    <script src="~/app/core/models/traceData.js"></script>
+    <script src="~/app/core/models/messages.js"></script>
+    <script src="~/app/core/service/service.base.js"></script>
+    <script src="~/app/core/Object/assignECM6.js"></script>
+    <script src="~/app/core/Object/object.assign.js"></script>
+    <script src="~/app/core/validating/mask.js"></script>
+    <script src="~/app/core/models/model.base.js"></script>
+    <script src="~/app/core/domManipulating/domManipulation.js"></script>
+    <script src="~/app/core/models/keyValuePair.js"></script>
+    <script src="~/app/core/mapper/IEntityMapper.js"></script>
+    <script src="~/app/core/mapper/EntityMapper.js"></script>
+    <script src="~/app/core/models/property.manipulation.js"></script>
+    <script src="~/app/core/validating/regularExpersion.js"></script>
+    <script src="~/app/core/models/userCommunicator.js"></script>
+    <script src="~/app/core/validating/validation.base.js"></script>
+    <script src="~/app/core/routing/route.handler.js"></script>
+    <script src="~/app/core/controllers/crud.controller.base.js"></script>
+    <script src="~/app/core/controllers/search.controller.js"></script>
+    <script src="~/app/core/controllers/tree.search.controller.js"></script>
+    <!-- #endregion ********************************** Core ****************************************-->
+    <!-- #endregion ********************************** datepicker css *********************************-->
+    <script src="~/Scripts/Libs/UnDefinitelyTyped/jquery-2.0.3.js"></script>
+    <script src="~/Scripts/Libs/UnDefinitelyTyped/angular.js"></script>
+    <!-- #region ********************************** Extenders ******************************************-->
+    <!-- #region ********************************** Modules ********************************************-->
+    <script src="~/app/components/lodingBar/loading-bar.js"></script>
+    <script src="~/app/components/lodingBar/app.js"></script>
+    <script src="~/app/nodak/common/common.module.js"></script>
+    <script src="~/app/nodak/set.module.js"></script>
+
+
+    <!-- #endregion ********************************** Modules ****************************************-->
+    <!-- #region ********************************** Components **********************************-->
+    <script src="~/app/components/labxand/components.js"></script>
+
+    <!--Fast select for combo multi select-->
+    @*<link href="~/Content/components/fastSelect/fastselect.min.css" rel="stylesheet" />
+        <script src="~/Content/components/fastSelect/fastselect.min.js"></script>
+        <script src="~/Content/components/fastSelect/fastselect.standalone.min.js"></script>
+
+        <script src="~/app/configuration/fastSelectConfiguration.js"></script>*@
+    <!-- select 2-->
+    @*<link href="~/Content/components/select2/select2.min.css" rel="stylesheet" />*@
+    <link href="~/Content/components/select2/select2.css" rel="stylesheet" />
+    <script src="~/Content/components/select2/select2.js"></script>
+    @*<script src="~/Content/components/select2/select2.min.js"></script>*@
+    <!-- select 2-->
+
+    <script src="~/app/components/labxand/combo/combo.base.js"></script>
+    <script src="~/app/components/labxand/combo/combo.js"></script>
+
+    <!-- #region ********************************** ActionPanel ***********************-->
+    <script src="~/app/components/labxand/actionPanel/action.panel.base.js"></script>
+    <script src="~/app/components/labxand/actionPanel/action.panel.js"></script>
+    <!-- #endregion ******************************* ActionPanel ***********************-->
+    <!-- #region ********************************** Modal *****************************-->
+    <script src="~/app/components/labxand/modal/modal.base.js"></script>
+    <script src="~/app/components/labxand/modal/modalSection.js"></script>
+    <script src="~/app/components/labxand/modal/labxandModal.js"></script>
+    <script src="~/app/components/labxand/modal/modal.directive.js"></script>
+
+    <!-- #endregion ******************************* Modal *****************************-->
+    <!-- #region ********************************** PartialView ***********************-->
+    <script src="~/app/components/labxand/partialView/partial.view.base.js"></script>
+    <script src="~/app/components/labxand/partialView/partialView.directive.js"></script>
+    <!-- #endregion ******************************* PartialView ***********************-->
+    <!-- #region ********************************** DatePicker ***********************-->
+    <script src="~/app/components/labxand/datePicker/dateTimeConvertor.js"></script>
+    <link href="~/app/components/datePicker/datePicker.style.css" rel="stylesheet" />
+    <script src="~/app/components/datePicker/angular.min.js"></script>
+    <script src="~/app/components/datePicker/moment.min.js"></script>
+    <script src="~/app/components/datePicker/moment-jalaali.js"></script>
+    <script src="~/app/components/datePicker/datePicker.directive.js"></script>
+    <script src="~/app/components/datePicker/labxandDatePicker.js"></script>
+    <!-- #region ********************************** Grid *****************************-->
+    <script src="~/app/components/labxand/grid/grid.base.js"></script>
+    <script src="~/app/components/labxand/grid/grid.columns.js"></script>
+    <script src="~/app/components/labxand/grid/grid.filter.js"></script>
+    <script src="~/app/components/labxand/grid/grid.js"></script>
+    <!-- #endregion ********************************** Grid **************************-->
+    <!-- #region ********************************** Lookup ***************************-->
+    <script src="~/app/components/labxand/lookup/lookup.base.js"></script>
+    <script src="~/app/components/labxand/lookup/lookup.js"></script>
+    <script src="~/app/components/labxand/lookup/treeLookup.base.js"></script>
+    <!-- #endregion ******************************** Lookup **************************-->
+    <!-- #region ******************************** Tree**************************-->
+    <link href="~/Content/components/tree/default/style.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/tree/jstree.min.js"></script>
+    <link href="~/Content/components/tree/default-dark/style.min.css" rel="stylesheet" />
+    <script src="~/app/components/labxand/tree/tree.base.js"></script>
+    <script src="~/app/components/labxand/tree/tree.js"></script>
+    <!-- #endregion ******************************** Tree**************************-->
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+    <script src="~/app/general/messageBox/messageBox.js"></script>
+    <link rel="stylesheet" href="~/Content/components/loadingBar/loadingBar.css" />
+    <link href="~/Content/components/modal/modal.css" rel="stylesheet" />
+    <link href="~/Content/KMS/Main.css" rel="stylesheet" />
+
+    <!--  ********************************** Notification ***********************-->
+    <script src="~/app/components/Notification/notification.js"></script>
+    <link href="~/Content/components/notification/notification.css" rel="stylesheet" />
+    <!--  ********************************** Notification ***********************-->
+    <!--  ********************************** CkEditor ***********************-->
+    <script src="~/app/components/CkEditor/ckeditor/ckeditor.js"></script>
+    <script src="~/app/components/CkEditor/CkEditor.js"></script>
+    <!--  ********************************** CkEditor ***********************-->
+    <!--  ********************************** combo ***********************-->
+    <script src="~/app/general/combo/combo.base.js"></script>
+    <script src="~/app/general/combo/comboStatic.base.js"></script>
+    <script src="~/app/general/combo/nestedCombo.base.js"></script>
+    <script src="~/app/components/combo/multiSelectCombo/multiSelect.comb.directive.js"></script>
+    <script src="~/app/components/combo/multiSelectCombo/multiSelect.combo.functionality.js"></script>
+    <script src="~/app/components/combo/nestedCombo/nested.combo.directive.js"></script>
+    <script src="~/app/components/combo/nestedCombo/nested.combo.functionality.js"></script>
+    <script src="~/app/components/combo/singleSelect.static.combo/SingleSelect.static.combo.directive.js"></script>
+    <script src="~/app/components/combo/singleSelect.static.combo/singleSelect.static.combo.functionality.js"></script>
+    <script src="~/app/components/labxand/singleSelectCombo/singleSelect.combo.directive.js"></script>
+    <script src="~/app/components/labxand/singleSelectCombo/singleSelect.combo.functionality.js"></script>
+    <link href="~/Content/components/combo/combo.css" rel="stylesheet" />
+    <!--  ********************************** tag ****************************-->
+    <script src="~/app/components/TagsInput/labxandTagsInput.js"></script>
+    <script src="~/app/components/TagsInput/tagsInput/ng-tags-input.js"></script>
+    <link href="~/app/components/TagsInput/tagsInput/ng-tags-input.min.css" rel="stylesheet" />
+    <link href="~/app/components/TagsInput/tagsInput/ng-tags-input.bootstrap.min.css" rel="stylesheet" />
+    <!--  ********************************** memberAutoComplete ****************************-->
+    <script src="~/app/components/KmsAutoComplete/kmsAutoComplete.js"></script>
+    <script src="~/app/components/autoCompelete/angucomplete-master/angucomplete.js"></script>
+    <link href="~/app/components/autoCompelete/angucomplete-master/angucomplete.css" rel="stylesheet" />
+
+    <!--  ********************************** fileUpload ****************************-->
+    <script src="~/app/components/fileUpload/fileUpload.controller.js"></script>
+    <script src="~/app/components/fileUpload/fileUpload.directive.js"></script>
+    <script src="~/app/components/fileUpload/fileUpload.js"></script>
+    <link href="~/Content/components/fileUpload/fileUpload.css" rel="stylesheet" />
+
+    <script>
+        function doLogout() {
+            if (localStorage.getItem("redirectPath") != undefined) {
+                var temp =localStorage.getItem("redirectPath");
+                localStorage.clear();
+                window.location.href = temp;
+                return;
+            }
+            var  token = localStorage.getItem("authenticationToken");
+        
+            $.ajax({
+               // headers: { 'Authorization': 'Bearer ' + token },
+                url: "http://localhost:60615/logout",
+                type: 'POST'
+            }).then(function (response) {
+                    window.location.href = '/login';
+
+                jwtToken = '';
+                refreshToken = '';
+            }, function (xhr, status, error) {
+                var response = xhr.responseText;
+                alert(JSON.stringify(JSON.parse(response), null, ' '));
+            });
+        }
+
+        function getParameterByName(name) {
+            var url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        $(document).ready(function () {
+            var token = getParameterByName('token');
+            var redirectPath = getParameterByName('redirectPath');
+            if (token != null) {
+                localStorage.setItem("authenticationToken",token);
+            }
+            if(redirectPath!= null)
+                localStorage.setItem("redirectPath", redirectPath);
+            if (localStorage.getItem("redirectPath") != undefined) {
+                $('#btnLogout').prop('value', 'پرتال');
+            }
+            if(token!= null)
+                window.location.href = '/';
+
+
+        });
+
+    </script>
+</head>
+<body ng-app="app">
+
+    <!-- Uses a header that contracts as the page scrolls down. -->
+    <style>
+        .demo-layout-waterfall .mdl-layout__header-row .mdl-navigation__link:last-of-type {
+            padding-right: 0;
+        }
+    </style>
+
+    <div class="demo-layout-waterfall mdl-layout mdl-js-layout">
+
+        <header class="mdl-layout__header mdl-layout__header--waterfall">
+            <!-- Top row, always visible -->
+
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+
+                <span class="mdl-layout-title fontYekan">پرتال</span>
+                <notification id="mynoti" style="float:right"> </notification>
+
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon"
+                           for="waterfall-exp">
+                        <i class="material-icons" resource="">search</i>
+
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="sample"
+                               id="waterfall-exp">
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <!-- Bottom row, not visible on scroll -->
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation -->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="http://localhost:55627/member">مدیریت اعضا</a>
+                  @*  <a class="mdl-navigation__link" href="http://localhost:55627/permission">مدیریت دسترسی ها</a>*@
+                    <a class="mdl-navigation__link" href="http://localhost:55627/enterprisePosition">مدیریت چارت سازمانی</a>
+                    <a class="mdl-navigation__link" href="http://localhost:55627/enterprisePositionPost">مدیریت نقشهای سازمانی</a>
+                    <a class="mdl-navigation__link" href="http://localhost:55627/organization">مدیریت سازمان</a>
+                    <a class="mdl-navigation__link" href="http://localhost:55627/role">مدیریت نقش ها</a>
+                    @*<a class="mdl-navigation__link" href="http://localhost:55627/company">مدیریت شرکت</a>*@
+                    @*<a class="mdl-navigation__link" href="http://localhost:55627/permissionCategory">مدیریت دسته بندی دسترسی ها</a>*@
+                    <input type="button" value="Logout" onclick="doLogout()" id="btnLogout" class="btn btn-default mdl-color--blue"/>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title fontYekan">پرتال</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="http://localhost:55627/member">مدیریت اعضا</a>
+                @*<a class="mdl-navigation__link" href="http://localhost:55627/permission">مدیریت دسترسی ها</a>*@
+                @*<a class="mdl-navigation__link" href="http://localhost:55627/permissionCategory">مدیریت دسته بندی دسترسی ها</a>*@
+                <a class="mdl-navigation__link" href="http://localhost:55627/enterprisePosition">مدیریت چارت سازمانی</a>
+                <a class="mdl-navigation__link" href="http://localhost:55627/enterprisePositionPost">مدیریت نقشهای سازمانی</a>
+                <a class="mdl-navigation__link" href="http://localhost:55627/organization">مدیریت سازمان</a>
+                <a class="mdl-navigation__link" href="http://localhost:55627/role">مدیریت نقش ها</a>
+                @*<a class="mdl-navigation__link" href="http://localhost:55627/company">مدیریت شرکت</a>*@
+                <a class="mdl-navigation__link" href="http://localhost:55627/Login">ورود</a>
+
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+
+                <div class="marginMain">
+                    @RenderBody()
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+
+
+
+
+    <div class="modal-backdrop in" id="ModalFadeIn" style="display:none; z-index:2050"></div>
+    <div id="DialogResult"></div>
+</body>
+</html>

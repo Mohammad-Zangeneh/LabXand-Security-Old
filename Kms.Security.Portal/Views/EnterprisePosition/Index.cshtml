@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<script src="~/app/nodak/common/organization/organization.dto.js"></script>
+<script src="~/app/nodak/common/organization/organization.js"></script>
+<script src="~/app/nodak/common/organization/organization.service.js"></script>
+<script src="~/app/nodak/common/organization/organization.mapper.js"></script>
+<script src="~/app/nodak/common/organization/organization.selector.controller.js"></script>
+<script src="~/app/nodak/common/organization/organization.tree.js"></script>
+<script src="~/app/nodak/common/organization/organization.lookup.js"></script>
+
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.dto.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.mapper.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.service.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.tree.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.lookup.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.selector.controller.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.controller.js"></script>
+
+<div ng-controller="common.enterprisePosition.controller as ctrl">
+
+    <div class="row">
+        <div class="col-sm-12 ">
+
+            <div class="card">
+                <div class="card-header">
+                    <action-panel operation="ctrl.actionPanel"></action-panel>
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+
+            <div class="card">
+                <div class="card-header">
+
+
+                </div>
+                <div class="card-body">
+
+                    <labxand-tree base="ctrl.organizationTreeEntity" Id="organizationTree"></labxand-tree>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+
+            <div class="card">
+                <div class="card-header">
+
+                </div>
+                <div class="card-body">
+
+                    <labxand-tree base="ctrl.enterprisePositionTreeEntity" Id="enterprisePositionTree"></labxand-tree>
+
+                </div>
+            </div>
+
+        </div>
+        <!--/.col-->
+        <!--/.col-->
+
+    </div>
+
+
+
+
+    <modal-section operation="ctrl.modalEnterprisePosition">
+        <div style="margin:20px">
+            <div class="form-group">
+                <label>نام چارت</label><span style="color:red">*</span>
+                <input type="text" class="form-control" ng-model="ctrl.currentEntity.Name" />
+            </div>
+            <div class="form-group">
+                <label>عدد مرتب سازی</label><span style="color:red">*</span>
+                <input type="text" class="form-control" ng-model="ctrl.currentEntity.SortingNumber" />
+            </div>
+            <div class="form-control">
+                <label>سازمان</label><span style="color:red">*</span>
+                <labxand-lookup class="" operation="ctrl.organizationLookup"></labxand-lookup>
+            </div>
+
+            <div class="col-lg-6 col-sm-12 col-md-12">
+                سرشاخه:<labxand-lookup operation="ctrl.enterprisePositionLookup"></labxand-lookup>
+            </div>
+        </div>
+    </modal-section>
+</div>
+

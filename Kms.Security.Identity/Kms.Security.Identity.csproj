@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7BDF45D-C1F4-483D-8849-D52EC4EC9D99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kms.Security.Identity</RootNamespace>
+    <AssemblyName>Kms.Security.Identity</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Kms.common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="LabXand.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Libs\LabXand\LabXand.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.DistributedServices">
+      <HintPath>C:\Libs\LabXand\LabXand.DistributedServices.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.DomainLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="LabXand.DomainLayer.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="LabXand.Infrastructure.Data">
+      <HintPath>C:\Libs\LabXand\LabXand.Infrastructure.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.Infrastructure.Data.EF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\LabXand.Infrastructure.Data.EF.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.Infrastructure.Data.Redis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\LabXand.Infrastructure.Data.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.Logging.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Libs\LabXand.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.Logging.LogService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Libs\LabXand.Logging.LogService.dll</HintPath>
+    </Reference>
+    <Reference Include="LabXand.Security.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.2\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.2.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.7.1\lib\net45\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web.4.0.0.315\lib\net40\StructureMap.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebApiFilters4Log, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebApiFilters4Log.1.3.2\lib\net452\WebApiFilters4Log.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WorkFlow.Security, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\ApplicationDbContext.cs" />
+    <Compile Include="Context\Configuration.cs" />
+    <Compile Include="Context\IUnitOfWork.cs" />
+    <Compile Include="HttpUtil.cs" />
+    <Compile Include="Ioc\IdentityIocRegistery.cs" />
+    <Compile Include="JwtUtil\JwtUtil.cs" />
+    <Compile Include="KmsSecurityHelper.cs" />
+    <Compile Include="KmsUserContextConvertor.cs" />
+    <Compile Include="Mapper\ClientIPAccessMapper.cs" />
+    <Compile Include="Mapper\CompanyMapper.cs" />
+    <Compile Include="Mapper\EnterprisePositionMapper.cs" />
+    <Compile Include="Mapper\EnterprisePositionPostMapper.cs" />
+    <Compile Include="Mapper\LoginHistoryMapper.cs" />
+    <Compile Include="Mapper\MemberMapper.cs" />
+    <Compile Include="Mapper\OrganizationMapper.cs" />
+    <Compile Include="Mapper\PermissionCategoryMapper.cs" />
+    <Compile Include="Mapper\PermissionMapper.cs" />
+    <Compile Include="Mapper\PermissionRoleMapper.cs" />
+    <Compile Include="Mapper\RoleMapper.cs" />
+    <Compile Include="Mapper\SecurityConfigurationMapper.cs" />
+    <Compile Include="Mapper\UserTokenMapper.cs" />
+    <Compile Include="Mapping\ClientIPAccessMap.cs" />
+    <Compile Include="Mapping\EnterprisePositionPostMap.cs" />
+    <Compile Include="Mapping\LoginHistoryMap.cs" />
+    <Compile Include="Mapping\MemberMap.cs" />
+    <Compile Include="Mapping\PermissionCategoryMap.cs" />
+    <Compile Include="Mapping\PermissionMap.cs" />
+    <Compile Include="Mapping\PermissionRoleMap.cs" />
+    <Compile Include="Mapping\RoleMap.cs" />
+    <Compile Include="Mapping\SecurityConfigurationMap.cs" />
+    <Compile Include="Mapping\UserTokenMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ApplicationRoleManager.cs" />
+    <Compile Include="Service\ApplicationSignInManager.cs" />
+    <Compile Include="Service\ApplicationUserManager.cs" />
+    <Compile Include="Service\AuthService.cs" />
+    <Compile Include="Service\Base\IServiceBase.cs" />
+    <Compile Include="Service\Base\ServiceBase.cs" />
+    <Compile Include="Service\CaptchaService.cs" />
+    <Compile Include="Service\ClaimsAuthorizationAttribute.cs" />
+    <Compile Include="Service\ClientIPAccessService.cs" />
+    <Compile Include="Service\CompanyService.cs" />
+    <Compile Include="Service\ConstantPolicies.cs" />
+    <Compile Include="Service\Contracts\IApplicationRoleManager.cs" />
+    <Compile Include="Service\Contracts\IApplicationSignInManager.cs" />
+    <Compile Include="Service\Contracts\IApplicationUserManager.cs" />
+    <Compile Include="Service\Contracts\IAuthService.cs" />
+    <Compile Include="Service\Contracts\IClientIPAccessService.cs" />
+    <Compile Include="Service\Contracts\ICompanyService.cs" />
+    <Compile Include="Service\Contracts\ICustomRoleStore.cs" />
+    <Compile Include="Service\Contracts\ICustomUserStore.cs" />
+    <Compile Include="Service\Contracts\IEnterprisePosition.cs" />
+    <Compile Include="Service\Contracts\IEnterprisePositionPostService.cs" />
+    <Compile Include="Service\Contracts\IKmsApplicationUserManager.cs" />
+    <Compile Include="Service\Contracts\ILoginHistoryService.cs" />
+    <Compile Include="Service\Contracts\ISecurityConfigurationService.cs" />
+    <Compile Include="Service\Contracts\ISecurityService.cs" />
+    <Compile Include="Service\Contracts\IOrganizationService.cs" />
+    <Compile Include="Service\Contracts\IPermissionCategoryService.cs" />
+    <Compile Include="Service\Contracts\IPermissionService.cs" />
+    <Compile Include="Service\Contracts\IRoleService.cs" />
+    <Compile Include="Service\Contracts\ITokenStoreService.cs" />
+    <Compile Include="Service\Contracts\IZarService.cs" />
+    <Compile Include="Service\CustomRoleStore.cs" />
+    <Compile Include="Service\CustomUserStore.cs" />
+    <Compile Include="Service\EnterprisePositionPostService.cs" />
+    <Compile Include="Service\EnterprisePositioServic.cs" />
+    <Compile Include="Service\Contracts\ICaptchaService.cs" />
+    <Compile Include="Service\LoginHistoryService.cs" />
+    <Compile Include="Service\OrganizationService.cs" />
+    <Compile Include="Service\PermissionCategoryService.cs" />
+    <Compile Include="Service\PermissionService.cs" />
+    <Compile Include="Service\RoleService.cs" />
+    <Compile Include="Service\SecurityConfigurationService.cs" />
+    <Compile Include="Service\SecurityService.cs" />
+    <Compile Include="Service\TokenStoreService.cs" />
+    <Compile Include="PasswordHashSHA.cs" />
+    <Compile Include="Service\UserManager.cs" />
+    <Compile Include="Service\ZarService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Context\SecurityBackup" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kms.Security.Common\Kms.Security.Common.csproj">
+      <Project>{1590b6a1-8d94-4b7a-9791-4fa43159abfe}</Project>
+      <Name>Kms.Security.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kms.Security.Core\Kms.Security.Core.csproj">
+      <Project>{b81fcf21-c8ac-4cdc-bfaf-5d34cf6b8fce}</Project>
+      <Name>Kms.Security.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kms.Security.OpenId\Kms.Security.OpenId.csproj">
+      <Project>{E752099A-8D3F-44D9-9E2A-9FD84759C424}</Project>
+      <Name>Kms.Security.OpenId</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kms.Security.Util\Kms.Security.Util.csproj">
+      <Project>{c1417cad-e8a6-4236-9b1e-707e54d69b3f}</Project>
+      <Name>Kms.Security.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "C:\Libs\"</PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

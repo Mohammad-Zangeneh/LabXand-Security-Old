@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>تغییر رمز ورود</title>
+    <link href="~/Content/KMS/Main.css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <!-- #region ********************************** Extenders ******************************************-->
+    <script src="~/app/extender/extender.js"></script>
+    <script src="~/app/extender/dateExtender.js"></script>
+    <script src="~/app/extender/arrayExtender.js"></script>
+    <!-- #region **********************************  Core ****************************************-->
+    <script src="~/app/configuration/config.js"></script>
+    <script src="~/app/core/enums/enums.js"></script>
+    <script src="~/app/core/models/traceData.js"></script>
+    <script src="~/app/core/models/messages.js"></script>
+    <script src="~/app/core/service/service.base.js"></script>
+    <script src="~/app/core/Object/assignECM6.js"></script>
+    <script src="~/app/core/Object/object.assign.js"></script>
+    <script src="~/app/core/validating/mask.js"></script>
+    <script src="~/app/core/models/model.base.js"></script>
+    <script src="~/app/core/domManipulating/domManipulation.js"></script>
+    <script src="~/app/core/models/keyValuePair.js"></script>
+    <script src="~/app/core/mapper/IEntityMapper.js"></script>
+    <script src="~/app/core/mapper/EntityMapper.js"></script>
+    <script src="~/app/core/models/property.manipulation.js"></script>
+    <script src="~/app/core/validating/regularExpersion.js"></script>
+    <script src="~/app/core/models/userCommunicator.js"></script>
+    <script src="~/app/core/validating/validation.base.js"></script>
+    <script src="~/app/core/routing/route.handler.js"></script>
+    <script src="~/app/core/controllers/crud.controller.base.js"></script>
+    <script src="~/app/core/controllers/search.controller.js"></script>
+    <script src="~/app/core/controllers/tree.search.controller.js"></script>
+    <!-- #endregion ********************************** Core ****************************************-->
+    <!-- #endregion ********************************** datepicker css *********************************-->
+    <script src="~/Scripts/Libs/UnDefinitelyTyped/jquery-2.0.3.js"></script>
+    <script src="~/Scripts/Libs/UnDefinitelyTyped/angular.js"></script>
+    <!-- #region ********************************** Extenders ******************************************-->
+    <!-- #region ********************************** Modules ********************************************-->
+    <script src="~/app/components/lodingBar/loading-bar.js"></script>
+    <script src="~/app/components/lodingBar/app.js"></script>
+    <script src="~/app/nodak/common/common.module.js"></script>
+    <script src="~/app/nodak/set.module.js"></script>
+
+
+    <!-- #endregion ********************************** Modules ****************************************-->
+    <!-- #region ********************************** Components **********************************-->
+    <script src="~/app/components/labxand/components.js"></script>
+
+
+    <!-- #region ********************************** ActionPanel ***********************-->
+    <script src="~/app/components/labxand/actionPanel/action.panel.base.js"></script>
+    <script src="~/app/components/labxand/actionPanel/action.panel.js"></script>
+    <!-- #endregion ******************************* ActionPanel ***********************-->
+    <script src="~/app/general/messageBox/messageBox.js"></script>
+    <link rel="stylesheet" href="~/Content/components/loadingBar/loadingBar.css" />
+
+    <script src="~/app/nodak/common/member/member.js"></script>
+    <script src="~/app/nodak/common/member/member.dto.js"></script>
+    <script src="~/app/nodak/common/member/member.mapper.js"></script>
+    <script src="~/app/nodak/common/member/member.service.js"></script>
+    <script src="~/app/nodak/common/login/login.controller.js"></script>
+
+    <script src="~/app/nodak/common/changePassword/changePasswordModel.js"></script>
+    <script src="~/app/nodak/common/changePassword/changePassword.controller.js"></script>
+
+</head>
+<body ng-app="app" class="app flex-row align-items-center" dir="rtl" ng-controller="common.changePassword.controller as ctrl">
+    <div class="container text-right">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card-group">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h1>تغییر رمز ورود</h1>
+                            <p class="text-muted">رمز ورود باید بیش از پنج کاراکتر باشد</p>
+                            <div class="mb-4">
+                                       رمز فعلی
+                                <input ng-model="ctrl.currentEntity.CurrentPassword" type="password" class="form-control" placeholder="رمز فعلی">
+                            </div>
+                            <div class="mb-4">
+                               رمز جدید
+                                <input type="password" ng-model="ctrl.currentEntity.Password" class="form-control" placeholder="رمز جدید">
+                            </div>
+                            <div class="mb-4">
+                                تکرار رمز جدید
+                                <input type="password" ng-model="ctrl.currentEntity.ConfirmPassword" class="form-control" placeholder="تکرار رمز جدید">
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-primary px-4" ng-click="ctrl.ChangePassword()">تایید</button>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <button type="button" class="btn btn-link px-0" ng-click="ctrl.BackUrl()">بازگشت</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

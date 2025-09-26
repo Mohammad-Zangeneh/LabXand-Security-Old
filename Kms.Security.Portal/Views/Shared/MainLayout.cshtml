@@ -1,0 +1,616 @@
+﻿<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+
+
+
+    @*<link href="~/Content/mdl-v1.1.2/material.css" rel="stylesheet" />*@
+    <link href="~/Content/KMS/icon.css" rel="stylesheet" />
+    <script src="~/Content/mdl-v1.1.2/material.js"></script>
+    <title>@ViewBag.Title</title>
+  
+    <!-- #region ********************************** Extenders ******************************************-->
+    <script src="~/app/extender/extender.js"></script>
+    <script src="~/app/extender/dateExtender.js"></script>
+    <script src="~/app/extender/arrayExtender.js"></script>
+    <!-- #region **********************************  Core ****************************************-->
+    <script src="~/app/configuration/config.js"></script>
+    <script src="~/app/core/enums/enums.js"></script>
+    <script src="~/app/core/models/traceData.js"></script>
+    <script src="~/app/core/models/messages.js"></script>
+    <script src="~/app/core/service/service.base.js"></script>
+    <script src="~/app/core/Object/assignECM6.js"></script>
+    <script src="~/app/core/Object/object.assign.js"></script>
+    <script src="~/app/core/validating/mask.js"></script>
+    <script src="~/app/core/models/model.base.js"></script>
+    <script src="~/app/core/domManipulating/domManipulation.js"></script>
+    <script src="~/app/core/models/keyValuePair.js"></script>
+    <script src="~/app/core/mapper/IEntityMapper.js"></script>
+    <script src="~/app/core/mapper/EntityMapper.js"></script>
+    <script src="~/app/core/models/property.manipulation.js"></script>
+    <script src="~/app/core/validating/regularExpersion.js"></script>
+    <script src="~/app/core/models/userCommunicator.js"></script>
+    <script src="~/app/core/validating/validation.base.js"></script>
+    <script src="~/app/core/routing/route.handler.js"></script>
+    <script src="~/app/core/controllers/crud.controller.base.js"></script>
+    <script src="~/app/core/controllers/search.controller.js"></script>
+    <script src="~/app/core/controllers/tree.search.controller.js"></script>
+    <!-- #endregion ********************************** Core ****************************************-->
+   
+    <!-- #endregion ********************************** datepicker css *********************************-->
+    <script src="~/Scripts/Libs/UnDefinitelyTyped/jquery-2.0.3.js"></script>
+    <script src="~/Scripts/Libs/UnDefinitelyTyped/angular.js"></script>
+
+    <script src="~/Content/toastr/toastr.min.js"></script>
+    <link href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
+    <!-- #region ********************************** Extenders ******************************************-->
+    <!-- #region ********************************** Modules ********************************************-->
+    <script src="~/app/components/lodingBar/loading-bar.js"></script>
+    <script src="~/app/components/lodingBar/app.js"></script>
+    <script src="~/app/nodak/common/common.module.js"></script>
+    <script src="~/app/nodak/set.module.js"></script>
+
+
+    <!-- #endregion ********************************** Modules ****************************************-->
+    <!-- #region ********************************** Components **********************************-->
+    <script src="~/app/components/labxand/components.js"></script>
+
+    <!--Fast select for combo multi select-->
+    @*<link href="~/Content/components/fastSelect/fastselect.min.css" rel="stylesheet" />
+        <script src="~/Content/components/fastSelect/fastselect.min.js"></script>
+        <script src="~/Content/components/fastSelect/fastselect.standalone.min.js"></script>
+
+        <script src="~/app/configuration/fastSelectConfiguration.js"></script>*@
+    <!-- select 2-->
+    @*<link href="~/Content/components/select2/select2.min.css" rel="stylesheet" />*@
+    <link href="~/Content/components/select2/select2.css" rel="stylesheet" />
+    <script src="~/Content/components/select2/select2.js"></script>
+    @*<script src="~/Content/components/select2/select2.min.js"></script>*@
+    <!-- select 2-->
+
+    <script src="~/app/components/labxand/combo/combo.base.js"></script>
+    <script src="~/app/components/labxand/combo/combo.js"></script>
+
+    <!-- #region ********************************** ActionPanel ***********************-->
+    <script src="~/app/components/labxand/actionPanel/action.panel.base.js"></script>
+    <script src="~/app/components/labxand/actionPanel/action.panel.js"></script>
+    <!-- #endregion ******************************* ActionPanel ***********************-->
+    <!-- #region ********************************** Modal *****************************-->
+    <script src="~/app/components/labxand/modal/modal.base.js"></script>
+    <script src="~/app/components/labxand/modal/modalSection.js"></script>
+    <script src="~/app/components/labxand/modal/labxandModal.js"></script>
+    <script src="~/app/components/labxand/modal/modal.directive.js"></script>
+
+    <!-- #endregion ******************************* Modal *****************************-->
+    <!-- #region ********************************** PartialView ***********************-->
+    <script src="~/app/components/labxand/partialView/partial.view.base.js"></script>
+    <script src="~/app/components/labxand/partialView/partialView.directive.js"></script>
+    <!-- #endregion ******************************* PartialView ***********************-->
+    <!-- #region ********************************** DatePicker ***********************-->
+    <script src="~/app/components/labxand/datePicker/dateTimeConvertor.js"></script>
+    <link href="~/app/components/datePicker/datePicker.style.css" rel="stylesheet" />
+    <script src="~/app/components/datePicker/angular.min.js"></script>
+    <script src="~/app/components/datePicker/moment.min.js"></script>
+    <script src="~/app/components/datePicker/moment-jalaali.js"></script>
+    <script src="~/app/components/datePicker/datePicker.directive.js"></script>
+    <script src="~/app/components/datePicker/labxandDatePicker.js"></script>
+    <!-- #region ********************************** Grid *****************************-->
+    <script src="~/app/components/labxand/grid/grid.base.js"></script>
+    <script src="~/app/components/labxand/grid/grid.columns.js"></script>
+    <script src="~/app/components/labxand/grid/grid.filter.js"></script>
+    <script src="~/app/components/labxand/grid/grid.js"></script>
+    <!-- #endregion ********************************** Grid **************************-->
+    <!-- #region ********************************** Lookup ***************************-->
+    <script src="~/app/components/labxand/lookup/lookup.base.js"></script>
+    <script src="~/app/components/labxand/lookup/lookup.js"></script>
+    <script src="~/app/components/labxand/lookup/treeLookup.base.js"></script>
+    <!-- #endregion ******************************** Lookup **************************-->
+    <!-- #region ******************************** Tree**************************-->
+    <link href="~/Content/components/tree/default/style.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/tree/jstree.min.js"></script>
+    <link href="~/Content/components/tree/default-dark/style.min.css" rel="stylesheet" />
+    <script src="~/app/components/labxand/tree/tree.base.js"></script>
+    <script src="~/app/components/labxand/tree/tree.js"></script>
+    <!-- #endregion ******************************** Tree**************************-->
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-rtl.min.css" rel="stylesheet" />*@
+    <script src="~/app/general/messageBox/messageBox.js"></script>
+    <link rel="stylesheet" href="~/Content/components/loadingBar/loadingBar.css" />
+    <link href="~/Content/components/modal/modal.css" rel="stylesheet" />
+    <link href="~/Content/KMS/Main.css" rel="stylesheet" />
+
+    <!--  ********************************** Notification ***********************-->
+    <script src="~/app/components/Notification/notification.js"></script>
+    <link href="~/Content/components/notification/notification.css" rel="stylesheet" />
+    <!--  ********************************** Notification ***********************-->
+    <!--  ********************************** CkEditor ***********************-->
+    <script src="~/app/components/CkEditor/ckeditor/ckeditor.js"></script>
+    <script src="~/app/components/CkEditor/CkEditor.js"></script>
+    <!--  ********************************** CkEditor ***********************-->
+    <!--  ********************************** combo ***********************-->
+    <script src="~/app/general/combo/combo.base.js"></script>
+    <script src="~/app/general/combo/comboStatic.base.js"></script>
+    <script src="~/app/general/combo/nestedCombo.base.js"></script>
+    <script src="~/app/components/combo/multiSelectCombo/multiSelect.comb.directive.js"></script>
+    <script src="~/app/components/combo/multiSelectCombo/multiSelect.combo.functionality.js"></script>
+    <script src="~/app/components/combo/nestedCombo/nested.combo.directive.js"></script>
+    <script src="~/app/components/combo/nestedCombo/nested.combo.functionality.js"></script>
+    <script src="~/app/components/combo/singleSelect.static.combo/SingleSelect.static.combo.directive.js"></script>
+    <script src="~/app/components/combo/singleSelect.static.combo/singleSelect.static.combo.functionality.js"></script>
+    <script src="~/app/components/labxand/singleSelectCombo/singleSelect.combo.directive.js"></script>
+    <script src="~/app/components/labxand/singleSelectCombo/singleSelect.combo.functionality.js"></script>
+    <link href="~/Content/components/combo/combo.css" rel="stylesheet" />
+    <!--  ********************************** tag ****************************-->
+    <script src="~/app/components/TagsInput/labxandTagsInput.js"></script>
+    <script src="~/app/components/TagsInput/tagsInput/ng-tags-input.js"></script>
+    <link href="~/app/components/TagsInput/tagsInput/ng-tags-input.min.css" rel="stylesheet" />
+    <link href="~/app/components/TagsInput/tagsInput/ng-tags-input.bootstrap.min.css" rel="stylesheet" />
+    <!--  ********************************** memberAutoComplete ****************************-->
+    <script src="~/app/components/KmsAutoComplete/kmsAutoComplete.js"></script>
+    <script src="~/app/components/autoCompelete/angucomplete-master/angucomplete.js"></script>
+    <link href="~/app/components/autoCompelete/angucomplete-master/angucomplete.css" rel="stylesheet" />
+
+    <!--  ********************************** Menu ****************************-->
+    <script src="~/app/components/labxand/menu/menu.js"></script>
+    <script src="~/app/nodak/common/common.menu.js"></script>
+    <script src="~/app/components/labxand/menu/menu.controller.js"></script>
+    <!--  ********************************** fileUpload ****************************-->
+    <script src="~/app/components/fileUpload/fileUpload.controller.js"></script>
+    <script src="~/app/components/fileUpload/fileUpload.directive.js"></script>
+    <script src="~/app/components/fileUpload/fileUpload.js"></script>
+    <link href="~/Content/components/fileUpload/fileUpload.css" rel="stylesheet" />
+
+    <script src="~/Scripts/Libs/Typed/typed.min.js"></script>
+    <script src="~/app/nodak/common/main/main.service.js"></script>
+    <script src="~/app/nodak/common/main/main.controller.js"></script>
+    @* main css *@
+    <link rel="shortcut icon" href="~/Content/img/favicon.png">
+    <title></title>
+
+    <link href="~/content/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/content/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    @*<link href="~/content/css/style.css" rel="stylesheet">*@
+    <link href="~/Content/KMS/KmsMain.min.css" rel="stylesheet" />
+    <!-- Styles required by this views -->
+    <link href="~/content/css/custom.css" rel="stylesheet" />
+    @* end css *@
+</head>
+<body ng-app="app"  class="app header-fixed  aside-menu-fixed aside-menu-hidden" ng-controller="common.main.controller as mainCtrl">
+    <header class="app-header navbar">
+        <div style="" id="user-info">
+            <div class="align-middle d-inline-block" ng-show="mainCtrl.HomePageSettingEntity.Scan.Attachments[0].FileData==null">
+                <a class="fa fa-gg" href="#"></a>
+            </div>
+            <div class="align-middle d-inline-block" ng-show="mainCtrl.HomePageSettingEntity.Scan.Attachments[0].FileData!=null">
+                <img data-ng-src="{{'data:image/png;base64,' + mainCtrl.HomePageSettingEntity.Scan.Attachments[0].FileData}}" style="width:60px;height:60px" />
+            </div>
+            <span class="mr-2 logo-text"  ng-bind="mainCtrl.HomePageSettingEntity.Titr"></span>
+        </div>
+        <div id="header-box">
+            <div id="header-top" class="d-flex">
+
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="جستجو ..." type="text">
+                        <span class="input-group-addon" id="search-btn">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="qute-box">
+                <img src="~/content/img/quotel.jpg" style="" id="quote-left" />
+                <div class="text-center alert-text" id="typed21">
+
+                    @*اگر تنهاترين تنها شوم باز خدا هست او جانشين همه نداشتنهاست*@
+                </div>
+                <img src="~/content/img/quoter.jpg" id="quote-right" />
+            </div>
+        </div>
+
+
+
+        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" id="menu-buttom">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+
+    </header>
+
+    <div class="app-body">
+        <div class="sidebar"  ng-controller="menu as me">
+
+            <div class="d-flex user-info">
+              @*  <img src="content/img/avatars/6.jpg" class="rounded-circle d-inline-block">*@
+                <div class="d-inline-block" id="user-info-box">
+                    <div id="user-info-fullName" ng-bind="me.FullName">
+                       
+                    </div>
+                    <div>
+                        @*12:34 - 22 بهمن*@
+                    </div>
+                </div>
+
+            </div>
+            <div id="exit-buttom">
+
+                <img src="~/content/img/exitIcon.jpg" />
+                <a href="#" ng-click="me.Logout()">
+                 {{me.LogoutCaption}}
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+
+                <ul class="nav" id="testMenu">
+              
+                
+                  </ul>
+
+
+                @*<ul class="nav">
+
+
+                    <li class="nav-title">
+
+                    </li>
+                    @*<li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> اطلاعات پایه</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost:55627/company"><i class="icon-puzzle"></i> مدیریت شرکت</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="components-social-buttons.html"><i class="icon-puzzle"></i> Social Buttons</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-star"></i> ارزیابی پاسخ</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" href="icons-font-awesome.html"><i class="icon-star"></i> Font Awesome <span class="badge badge-secondary">4.7</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="icons-simple-line-icons.html"><i class="icon-star"></i> Simple Line Icons</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="widgets.html"><i class="icon-calculator"></i> جستجو <span class="badge badge-primary">NEW</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="charts.html"><i class="icon-pie-chart"></i> گزارشات</a>
+                    </li>
+                    <li class="divider"></li>
+
+
+                </ul>*@
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+
+        <!-- Main content -->
+        <main class="main">
+
+            <div class="container-fluid">
+
+                <div class="animated fadeIn">
+                    @RenderBody()
+                </div>
+            </div>
+            <!-- /.conainer-fluid -->
+        </main>
+
+        <aside class="aside-menu">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#timeline" role="tab"><i class="icon-list"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#messages" role="tab"><i class="icon-speech"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#settings" role="tab"><i class="icon-settings"></i></a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="timeline" role="tabpanel">
+                    <div class="callout m-0 py-2 text-muted text-center bg-light text-uppercase">
+                        <small><b>Today</b></small>
+                    </div>
+                    <hr class="transparent mx-3 my-0">
+                    <div class="callout callout-warning m-0 py-3">
+                        <div class="avatar float-right">
+                            <img src="~/content/img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                        </div>
+                        <div>
+                            Meeting with
+                            <strong>Lucas</strong>
+                        </div>
+                        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
+                        <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA </small>
+                    </div>
+                    <hr class="mx-3 my-0">
+                    <div class="callout callout-info m-0 py-3">
+                        <div class="avatar float-right">
+                            <img src="~/content/img/avatars/4.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                        </div>
+                        <div>
+                            Skype with
+                            <strong>Megan</strong>
+                        </div>
+                        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 4 - 5pm</small>
+                        <small class="text-muted"><i class="icon-social-skype"></i>&nbsp; On-line </small>
+                    </div>
+                    <hr class="transparent mx-3 my-0">
+                    <div class="callout m-0 py-2 text-muted text-center bg-light text-uppercase">
+                        <small><b>Tomorrow</b></small>
+                    </div>
+                    <hr class="transparent mx-3 my-0">
+                    <div class="callout callout-danger m-0 py-3">
+                        <div>
+                            New UI Project -
+                            <strong>deadline</strong>
+                        </div>
+                        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 10 - 11pm</small>
+                        <small class="text-muted"><i class="icon-home"></i>&nbsp; creativeLabs HQ </small>
+                        <div class="avatars-stack mt-2">
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/2.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/3.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/4.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/5.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-3 my-0">
+                    <div class="callout callout-success m-0 py-3">
+                        <div>
+                            <strong>#10 Startups.Garden</strong> Meetup
+                        </div>
+                        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 1 - 3pm</small>
+                        <small class="text-muted"><i class="icon-location-pin"></i>&nbsp; Palo Alto, CA </small>
+                    </div>
+                    <hr class="mx-3 my-0">
+                    <div class="callout callout-primary m-0 py-3">
+                        <div>
+                            <strong>Team meeting</strong>
+                        </div>
+                        <small class="text-muted mr-3"><i class="icon-calendar"></i>&nbsp; 4 - 6pm</small>
+                        <small class="text-muted"><i class="icon-home"></i>&nbsp; creativeLabs HQ </small>
+                        <div class="avatars-stack mt-2">
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/2.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/3.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/4.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/5.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                            <div class="avatar avatar-xs">
+                                <img src="~/content/img/avatars/8.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-3 my-0">
+                </div>
+                <div class="tab-pane p-3" id="messages" role="tabpanel">
+                    <div class="message">
+                        <div class="py-3 pb-5 mr-3 float-left">
+                            <div class="avatar">
+                                <img src="~/content/img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                                <span class="avatar-status badge-success"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <small class="text-muted">Lukasz Holeczek</small>
+                            <small class="text-muted float-right mt-1">1:52 PM</small>
+                        </div>
+                        <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
+                        <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+                    </div>
+                    <hr>
+                    <div class="message">
+                        <div class="py-3 pb-5 mr-3 float-left">
+                            <div class="avatar">
+                                <img src="~/content/img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                                <span class="avatar-status badge-success"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <small class="text-muted">Lukasz Holeczek</small>
+                            <small class="text-muted float-right mt-1">1:52 PM</small>
+                        </div>
+                        <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
+                        <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+                    </div>
+                    <hr>
+                    <div class="message">
+                        <div class="py-3 pb-5 mr-3 float-left">
+                            <div class="avatar">
+                                <img src="~/content/img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                                <span class="avatar-status badge-success"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <small class="text-muted">Lukasz Holeczek</small>
+                            <small class="text-muted float-right mt-1">1:52 PM</small>
+                        </div>
+                        <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
+                        <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+                    </div>
+                    <hr>
+                    <div class="message">
+                        <div class="py-3 pb-5 mr-3 float-left">
+                            <div class="avatar">
+                                <img src="~/content/img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                                <span class="avatar-status badge-success"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <small class="text-muted">Lukasz Holeczek</small>
+                            <small class="text-muted float-right mt-1">1:52 PM</small>
+                        </div>
+                        <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
+                        <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+                    </div>
+                    <hr>
+                    <div class="message">
+                        <div class="py-3 pb-5 mr-3 float-left">
+                            <div class="avatar">
+                                <img src="~/content/img/avatars/7.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                                <span class="avatar-status badge-success"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <small class="text-muted">Lukasz Holeczek</small>
+                            <small class="text-muted float-right mt-1">1:52 PM</small>
+                        </div>
+                        <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
+                        <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</small>
+                    </div>
+                </div>
+                <div class="tab-pane p-3" id="settings" role="tabpanel">
+                    <h6>Settings</h6>
+
+                    <div class="aside-options">
+                        <div class="clearfix mt-4">
+                            <small><b>Option 1</b></small>
+                            <label class="switch switch-text switch-pill switch-success switch-sm float-right">
+                                <input type="checkbox" class="switch-input" checked="">
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+                        </div>
+                    </div>
+
+                    <div class="aside-options">
+                        <div class="clearfix mt-3">
+                            <small><b>Option 2</b></small>
+                            <label class="switch switch-text switch-pill switch-success switch-sm float-right">
+                                <input type="checkbox" class="switch-input">
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <small class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+                        </div>
+                    </div>
+
+                    <div class="aside-options">
+                        <div class="clearfix mt-3">
+                            <small><b>Option 3</b></small>
+                            <label class="switch switch-text switch-pill switch-success switch-sm float-right">
+                                <input type="checkbox" class="switch-input">
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="aside-options">
+                        <div class="clearfix mt-3">
+                            <small><b>Option 4</b></small>
+                            <label class="switch switch-text switch-pill switch-success switch-sm float-right">
+                                <input type="checkbox" class="switch-input" checked="">
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <h6>System Utilization</h6>
+
+                    <div class="text-uppercase mb-1 mt-4">
+                        <small><b>CPU Usage</b></small>
+                    </div>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <small class="text-muted">348 Processes. 1/4 Cores.</small>
+
+                    <div class="text-uppercase mb-1 mt-2">
+                        <small><b>Memory Usage</b></small>
+                    </div>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <small class="text-muted">11444GB/16384MB</small>
+
+                    <div class="text-uppercase mb-1 mt-2">
+                        <small><b>SSD 1 Usage</b></small>
+                    </div>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <small class="text-muted">243GB/256GB</small>
+
+                    <div class="text-uppercase mb-1 mt-2">
+                        <small><b>SSD 2 Usage</b></small>
+                    </div>
+                    <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <small class="text-muted">25GB/256GB</small>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer class="app-footer">
+        <span class="ml-3">
+            <i class="fa fa-gg fa-lg "></i>
+            <a href="http://coreui.io">پرتال</a>
+
+        </span>|
+        <span class="mr-4">کلیه حقوق محفوظ است</span>
+    </footer>
+
+    <!-- Bootstrap and necessary plugins -->
+    <script src="~/content/js/popper.min.js"></script>
+    <script src="~/content/js/bootstrap.min.js"></script>
+    
+    <script src="~/content/js/app.js"></script>
+    <div class="modal-backdrop in" id="ModalFadeIn" style="display:none; z-index:2050"></div>
+    <div id="DialogResult"></div>
+</body>
+</html>

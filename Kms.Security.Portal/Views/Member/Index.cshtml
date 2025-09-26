@@ -1,0 +1,158 @@
+﻿@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<script src="~/app/nodak/common/role/role.dto.js"></script>
+<script src="~/app/nodak/common/role/role.js"></script>
+<script src="~/app/nodak/common/role/role.mapper.js"></script>
+<script src="~/app/nodak/common/role/role.service.js"></script>
+<script src="~/app/nodak/common/role/role.combo.js"></script>
+@* organization *@
+<script src="~/app/nodak/common/organization/organization.js"></script>
+<script src="~/app/nodak/common/organization/organization.dto.js"></script>
+<script src="~/app/nodak/common/organization/organization.service.js"></script>
+<script src="~/app/nodak/common/organization/organization.tree.js"></script>
+<script src="~/app/nodak/common/organization/organization.lookup.js"></script>
+<script src="~/app/nodak/common/organization/organization.selector.controller.js"></script>
+@* end organization *@
+
+@* enterprisePosition *@
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.dto.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.service.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.tree.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.selector.controller.js"></script>
+<script src="~/app/nodak/common/enterprisePosition/enterprisePosition.lookup.js"></script>
+
+@* end enterprisePosition *@
+<script src="~/app/nodak/common/enterprisePositionPost/enterprisePositionPost.dto.js"></script>
+<script src="~/app/nodak/common/enterprisePositionPost/enterprisePositionPost.js"></script>
+<script src="~/app/nodak/common/enterprisePositionPost/enterprisePositionPost.mapper.js"></script>
+<script src="~/app/nodak/common/enterprisePositionPost/enterprisePositionPost.service.js"></script>
+<script src="~/app/nodak/common/enterprisePositionPost/enterprisePositionPost.combo.js"></script>
+
+<script src="~/app/nodak/common/member/member.dto.js"></script>
+<script src="~/app/nodak/common/member/member.js"></script>
+<script src="~/app/nodak/common/member/member.mapper.js"></script>
+<script src="~/app/nodak/common/member/member.service.js"></script>
+<script src="~/app/nodak/common/member/member.grid.js"></script>
+<script src="~/app/nodak/common/member/member.search.model.js"></script>
+<script src="~/app/nodak/common/member/member.search.controller.js"></script>
+<script src="~/app/nodak/common/member/member.controller.js"></script>
+<div ng-controller="common.member.controller as ctrl">
+
+    <div class="card" ng-show="ctrl.RegisterMode" style="padding:25px">
+        @*<action-panel operation="ctrl.actionPanel"></action-panel>*@
+        <div class="row">
+
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>نام</label><span style="color:red">*</span>
+                <input type="text" ng-model="ctrl.currentEntity.FirstName" class="form-control" placeholder="نام" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>نام خانوادگی</label><span style="color:red">*</span>
+                <input type="text" ng-model="ctrl.currentEntity.LastName" class="form-control" placeholder="نام خانوادگی" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>نام کاربری</label><span style="color:red">*</span>
+                <input type="text" ng-disabled="ctrl.EditMode" ng-model="ctrl.currentEntity.UserName" class="form-control" placeholder="نام کاربری" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>شماره پرسنلی</label>@*<span style="color:red">*</span>*@
+                <input type="text" ng-model="ctrl.currentEntity.PersonnelNumber" class="form-control" placeholder="شماره پرسنلی" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>رمز ورود</label><span style="color:red">*</span>
+                <input type="password" ng-disabled="ctrl.EditMode" ng-model="ctrl.currentEntity.Password" class="form-control" placeholder="رمز ورود" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>تکرار رمز ورود</label><span style="color:red">*</span>
+                <input type="password" ng-disabled="ctrl.EditMode" ng-model="ctrl.currentEntity.ConfirmPassword" class="form-control" placeholder="تکرار رمز ورود" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>ایمیل</label><span style="color:red">*</span>
+                <input type="text" ng-disabled="ctrl.EditMode" ng-model="ctrl.currentEntity.Email" class="form-control" placeholder="ایمیل" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>
+                    سازمان
+                    <span style="color:red">*</span>
+                </label>
+                <labxand-lookup class="form-control" operation="ctrl.organizationLookup"></labxand-lookup>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>
+                    جایگاه سازمانی
+                    <span style="color:red">*</span>
+                </label>
+                <labxand-lookup class="form-control" operation="ctrl.enterprisePositionLookup"></labxand-lookup>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>
+                    نقش های کاربر
+                </label>
+                <labxand-combo base="ctrl.RoleCombo" class="form-control"></labxand-combo>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>
+                    پست های سازمانی کاربر
+                </label>
+                <labxand-combo class="form-control" base="ctrl.EnterprisePositionPostCombo"></labxand-combo>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 text-left" style="margin-bottom:10px">
+                <button class="btn btn-success" ng-click="ctrl.Save()">ثبت</button>
+                <button class="btn btn-blue"  ng-show="ctrl.EditMode" ng-click="ctrl.Return()">بازگشت</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card" style="padding:25px" ng-hide="ctrl.RegisterMode">
+        <div class="row ">
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>نام</label>
+                <input type="text" ng-model="ctrl.searchModel.FirstName" class="form-control" placeholder="نام" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>نام خانوادگی</label>
+                <input type="text" ng-model="ctrl.searchModel.LastName" class="form-control" placeholder="نام خانوادگی" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>نام کاربری</label>
+                <input type="text" ng-model="ctrl.searchModel.UserName" class="form-control" placeholder="نام کاربری" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>شماره پرسنلی</label>
+                <input type="text" ng-model="ctrl.searchModel.PerssonelNumber" class="form-control" placeholder="شماره پرسنلی" required />
+            </div>
+            <div class="form-group col-sm-12 col-md-6 col-lg-6">
+                <label>ایمیل</label>
+                <input type="text" ng-model="ctrl.searchModel.Email" class="form-control" placeholder="ایمیل" required />
+            </div>
+        </div>
+        <div class="form-group col-sm-12 col-md-6 col-lg-6">
+            <button class="kmsUpdateBtn" ng-click="ctrl.Search()">جستجو</button>
+            </div>
+
+
+        </div>
+
+    <div class="card" style="padding:25px" ng-hide="ctrl.RegisterMode">
+        <div class="row ">
+            <action-panel operation="ctrl.memberActionPanel"></action-panel>
+            <grid base="ctrl.gridEntity" id="MemberGrid"></grid>
+
+            <modal-section operation="ctrl.modalResetPassword">
+
+                <div class="row" style="margin:20px">
+                    <input disabled type="text" ng-model="ctrl.currentEntity.FirstName" class="form-control" placeholder="نام" required />
+                    <input disabled type="text" ng-model="ctrl.currentEntity.LastName" class="form-control" placeholder="نام خانوادگی" required />
+                    <input type="password" ng-model="ctrl.currentEntity.Password" class="form-control" placeholder="رمز ورود" required />
+                </div>
+
+
+            </modal-section>
+
+        </div>
+    </div>
+</div>

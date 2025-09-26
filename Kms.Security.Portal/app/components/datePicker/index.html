@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Jalali Date Picker</title>
+    <meta charset="utf-8" />
+    <link href="datePicker.style.css" rel="stylesheet" />
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="myController">
+    <input readonly ng-model="d" ng-date-picker="load()" ng-date-picker-today="'1395/05/06'" />
+</body>
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myController', ['$scope', '$timeout', myController]);
+
+d:Date=new Date();
+
+    function myController($scope, $timeout) {
+
+        $scope.d = '';
+
+        $scope.load = function () {
+            alert($scope.d);
+        };
+    }
+
+</script>
+<script src="datePicker.directive.js"></script>
+</html>

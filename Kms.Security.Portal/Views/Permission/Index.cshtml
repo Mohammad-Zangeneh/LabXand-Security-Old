@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+<script src="~/app/nodak/common/permission/permissionType.dto.js"></script>
+<script src="~/app/nodak/common/permission/permissionType.service.js"></script>
+<script src="~/app/nodak/common/permission/permissionType.combo.js"></script>
+
+<script src="~/app/nodak/common/company/company.js"></script>
+<script src="~/app/nodak/common/company/company.dto.js"></script>
+<script src="~/app/nodak/common/company/company.search.model.js"></script>
+<script src="~/app/nodak/common/company/company.mapper.js"></script>
+<script src="~/app/nodak/common/company/company.combo.js"></script>
+<script src="~/app/nodak/common/company/company.service.js"></script>
+<script src="~/app/nodak/common/company/company.grid.js"></script>
+
+<script src="~/app/nodak/common/permissionCategory/permissionCategory.dto.js"></script>
+<script src="~/app/nodak/common/permissionCategory/permissionCategory.js"></script>
+<script src="~/app/nodak/common/permissionCategory/permissionCategory.mapper.js"></script>
+<script src="~/app/nodak/common/permissionCategory/permissionCategory.service.js"></script>
+<script src="~/app/nodak/common/permissionCategory/permissionCategory.tree.js"></script>
+<script src="~/app/nodak/common/permissionCategory/permissionCategory.lookup.js"></script>
+<script src="~/app/nodak/common/permission/permission.dto.js"></script>
+<script src="~/app/nodak/common/permission/permission.js"></script>
+<script src="~/app/nodak/common/permission/permission.mapper.js"></script>
+<script src="~/app/nodak/common/permission/permission.tree.js"></script>
+<script src="~/app/nodak/common/permission/permission.service.js"></script>
+<script src="~/app/nodak/common/permission/permission.lookup.js"></script>
+<script src="~/app/nodak/common/permission/permission.selector.controller.js"></script>
+<script src="~/app/nodak/common/permission/permission.controller.js"></script>
+
+<script src="~/app/nodak/common/permissionCategory/permissionCategory.selector.controller.js"></script>
+<script src="~/app/nodak/common/permissionCategory/permissionCategory.controller.js"></script>
+
+<div ng-controller="common.permissionCategory.controller as ctrl">
+
+
+
+    <div class="row">
+        <div class="col-sm-12 ">
+
+            <div class="card">
+                <div class="card-header">
+                    <action-panel operation="ctrl.actionPanel"></action-panel>
+
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <input type="text" ng-model="ctrl.currentEntity.Name" class="form-control" placeholder="نام " required />
+
+                    </div>
+                    <div class="form-group">
+                        <label> سرشاخه</label>
+                        <labxand-lookup class="form-control" operation="ctrl.permissionCategoryLookup"></labxand-lookup>
+                    </div>
+                    <div class="form-group">
+                        <label>شرکت</label> 
+                        <labxand-combo class="form-control" base="ctrl.CompanyCombo"></labxand-combo>
+                    </div>
+                    <div class="form-group">
+                        <label>نوع دسترسی</label>
+                        <labxand-combo class="form-control" base="ctrl.PermissionTypeCombo"></labxand-combo>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!--/.col-->
+        <!--/.col-->
+
+    </div>
+</div>
+
+
+
+
+<div ng-controller="common.permission.controller as ctrl">
+
+
+
+
+
+    <div class="row">
+        <div class="col-sm-12 ">
+
+            <div class="card">
+                <div class="card-header">
+                    <action-panel operation="ctrl.actionPanel"></action-panel>
+
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group">
+
+                        <input type="text" ng-model="ctrl.currentEntity.Title" class="form-control" placeholder="عنوان" required />
+                        <input type="text" ng-model="ctrl.currentEntity.Code" class="form-control" placeholder="کد" required />
+                    </div>
+                    <div class="form-group">
+                        <label> سرشاخه</label> 
+                        <labxand-lookup class="form-control" operation="ctrl.permissionCategoryLookup"></labxand-lookup>
+                    </div>
+                    <div class="form-group">
+                        <label>شرکت</label> 
+                        <labxand-combo base="ctrl.CompanyCombo" class="form-control"></labxand-combo>
+                    </div>
+                    <div class="form-group">
+                        <label>نوع دسترسی</label>
+                        <labxand-combo class="form-control" base="ctrl.PermissionTypeCombo" ></labxand-combo>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!--/.col-->
+        <!--/.col-->
+
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-12 ">
+
+            <div class="card">
+                <div class="card-header">
+
+                </div>
+                <div class="card-body">
+                    <labxand-tree base="ctrl.PermissionTree" Id="PermissionTree1"></labxand-tree>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

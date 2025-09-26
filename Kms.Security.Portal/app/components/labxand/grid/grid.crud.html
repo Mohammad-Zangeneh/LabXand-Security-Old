@@ -1,0 +1,82 @@
+﻿<style>
+    .highlight {
+        /*background-color: darkgray !important;*/
+    }
+
+    .Headers {
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        margin-right: 16px;
+    }
+
+    .Table {
+        max-height: 200px;
+        overflow-y: scroll;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        direction: ltr;
+    }
+
+    .scrolltable {
+        overflow-x: auto;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<div ng-repeat="btn in Base.buttons" id="">
+    <a ng-disabled="btn.disabled" ng-show="btn.visible" title="{{btn.title}}" ng-click="btn.OnClick()" class="{{btn.className}}">{{btn.caption}}</a>
+</div>
+<div class="scrolltable">
+    <div class="Headers" id="{{Id1}}">
+        <table style="margin:0px;width:98.7%;" class="labxand-table table">
+            <thead>
+                <tr></tr>
+            </thead>
+        </table>
+    </div>
+    <div class="Table" id="{{Id}}">
+        <table style="margin:0px;width:100%;direction:rtl" class="labxand-table table">
+            <thead>
+                <tr class='GridTitle'>
+                    <!--<th style="min-width:16px; width:16px; border:none"></th>-->
+                    <th style="min-width:50px; width:50px; word-break: break-all;">
+                        ردیف
+                    </th>
+                    <th ng-repeat='h in Base.Columns' ng-click="asc=Base.Orderby(h.field,asc)" style="{{h.trStyle}} word-break: break-all;">
+                        <div class="text-right"><span ng-class="{true:'glyphicon glyphicon-arrow-up',false:'glyphicon glyphicon-arrow-down'}[Base.Check(h.field)&&asc]"></span> {{h.Title}}</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="d in Base.Data.Results" ng-click="Base.OnSelectedRow(d)" ng-class="{true:'highlight',false:''}[Base.CheckSelected(d[Base.modelId])]">
+                    <td style="min-width:50px; width:50px; word-break: break-all;">{{(Base.page - 1) * Base._pageSize + $index + 1}}</td>
+                    <td ng-repeat="h in Base.Columns" style="{{h.trStyle}} word-break: break-all; " class="text-right">
+                        <div ng-show="h.WithoutFilter" ng-bind="$eval('d.'+h.field)"></div>
+                        <div ng-show="h.WithoutFilter == false" bind="{{h.Filter.Set($eval('d.'+h.field))}}"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<div ng-hide="Base.Hide">
+    <div class="row">
+        <div class="col-lg-24 col-md-24 col-sm-24">
+            <div style="direction:ltr;text-align:left">
+                تعداد کل: {{Base.totalItems}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-24 col-md-24 col-sm-24">
+            <ul class="pagination">
+                <li ng-repeat="item in Base.List" ng-class="item.liClass">
+                    <a ng-click="Base.internalAction(item)" ng-bind="item.value" ng-class="item.aClass"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

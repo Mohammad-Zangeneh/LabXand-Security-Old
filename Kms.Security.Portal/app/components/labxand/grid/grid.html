@@ -1,0 +1,76 @@
+﻿<style>
+    .highlight {
+        background-color: #CECECE !important;
+        font-weight: bold;
+    }
+
+    .pagination > li > a, .pagination > li > span {
+        border-radius: 50% !important;
+        margin: 0 3px;
+    }
+
+    .pagination li.active a {
+        background-color: #000b5be3 !important;
+        border-color: #000b5be3 !important;
+    }
+
+        .pagination li.active a:hover {
+            color: white !important;
+        }
+
+    .table th, .table td {
+        padding: .25rem;
+    }
+</style>
+
+<div class="table-container" ng-hide="Base.cardMode">
+
+    <table class="table table-responsive-sm ">
+        <thead>
+            <tr>
+                <th  style="width:60px">ردیف</th>
+                <th ng-repeat='h in Base.Columns' ng-click="asc=Base.Orderby(h.field,asc)"  style="width:auto;width:{{h.width}}px">
+                    <div class="text-right"><span ng-class="{true:'glyphicon glyphicon-arrow-up',false:'glyphicon glyphicon-arrow-down'}[Base.Check(h.field)&&asc]"></span> {{h.Title}}</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody ng-show="Base.MultiSelect">
+            <tr ng-show="Base.MultiSelect==true" ng-repeat="d in Base.Data.Results" ng-click="Base.OnSelectedRows(d)" ng-class="{true:'highlight',false:''}[Base.CheckSelectedRows(d)]">
+                <td  style="width:60px">{{(Base.page - 1) * Base._pageSize + $index + 1}}</td>
+                <td ng-repeat="h in Base.Columns"  style="width:auto;width:{{h.width}}px">
+                    <div ng-show="h.WithoutFilter" ng-bind="$eval('d.'+h.field)"></div>
+                    <div ng-show="h.WithoutFilter == false" bind="{{h.Filter.Set($eval('d.'+h.field))}}"></div>
+                </td>
+
+            </tr>
+
+        </tbody>
+        <tbody ng-show="!Base.MultiSelect">
+
+            <tr ng-show="Base.MultiSelect==false" ng-repeat="d in Base.Data.Results" ng-click="Base.OnSelectedRow(d)" ng-class="{true:'highlight',false:''}[Base.CheckSelected(d[Base.modelId])]">
+                <td  style="width:60px">{{(Base.page - 1) * Base._pageSize + $index + 1}}</td>
+                <td ng-repeat="h in Base.Columns" style="width:auto;width:{{h.width}}px">
+                    <div ng-show="h.WithoutFilter" ng-bind="$eval('d.'+h.field)"></div>
+                    <div ng-show="h.WithoutFilter == false" bind="{{h.Filter.Set($eval('d.'+h.field))}}"></div>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<!-- paging -->
+<div class="d-flex justify-content-center">
+    <ul class="pagination mt-2">
+        <li class="" ng-repeat="item in Base.List" ng-class="item.liClass">
+            <a class="" ng-click="Base.internalAction(item)" ng-bind="item.value" ng-class="item.aClass"></a>
+        </li>
+    </ul>
+</div>
+<div class="d-flex justify-content-center">
+    <b>
+        تعداد کل: &nbsp;
+    </b>
+    {{Base.totalItems}}
+</div>
+<!-- end paging -->

@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+<script src="~/app/nodak/common/organization/organization.dto.js"></script>
+<script src="~/app/nodak/common/organization/organization.js"></script>
+<script src="~/app/nodak/common/organization/organization.service.js"></script>
+<script src="~/app/nodak/common/organization/organization.mapper.js"></script>
+<script src="~/app/nodak/common/organization/organization.tree.js"></script>
+<script src="~/app/nodak/common/organization/organization.lookup.js"></script>
+<script src="~/app/nodak/common/organization/organization.selector.controller.js"></script>
+<script src="~/app/nodak/common/organization/organization.controller.js"></script>
+
+
+
+
+
+<div ng-controller="common.organization.controller as ctrl">
+
+    <div class="row">
+        <div class="col-sm-12 ">
+
+            <div class="card">
+                <div class="card-header">
+                    <action-panel operation="ctrl.actionPanel"></action-panel>
+
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label>نام سازمان</label>
+                        <span style="color:red">*</span>
+                        <input type="text" ng-model="ctrl.currentEntity.Name" class="form-control" placeholder="نام" required />
+                    </div>
+
+                    <div class="form-group">
+                        سرشاخه:<labxand-lookup operation="ctrl.organizationLookup"></labxand-lookup>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!--/.col-->
+        <!--/.col-->
+
+    </div>
+    <!--/.row-->
+    <div class="row">
+        <div class="col-sm-12 ">
+
+            <div class="card">
+                <div class="card-header">
+
+                </div>
+                <div class="card-body">
+                    <action-panel operation="ctrl.gridActionPanel"></action-panel>
+                    <labxand-tree base="ctrl.TreeEntity" Id="test121" dataList="null"></labxand-tree>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

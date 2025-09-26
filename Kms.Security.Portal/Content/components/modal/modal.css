@@ -1,0 +1,198 @@
+﻿/*custom modal*/
+.nodakModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2048; /* Sit on top */
+    padding-top: 20px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+/* Modal Content */
+.nodakModal-content {
+   position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    border: 1px solid #888;
+    width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    
+    border: 1px solid #999999;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    background-clip: padding-box;
+    outline: none;
+
+
+}
+
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -200px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+/* The Close Button */
+.nodakClose {
+    color: #000;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .nodakClose:hover,
+    .nodakClose:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.nodakModal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    min-height: 16.428571429px;
+}
+
+
+.nodakModal-body {
+    padding: 10px;
+}
+
+.nodakModal-footer {
+    margin-top: 15px;
+    padding: 19px 20px 20px;
+    text-align: left;
+    border-top: 1px solid #e5e5e5;
+}
+
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: hsla(0,0%,100%,.4) !important;
+}
+
+    .modal-backdrop.fade {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    .modal-backdrop.in {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+
+
+
+
+.nodakModal-footer {
+    margin-top: 15px;
+    padding: 19px 20px 20px;
+    text-align: left;
+    border-top: 1px solid #e5e5e5;
+}
+
+    .nodakModal-footer:before,
+    .nodakModal-footer:after {
+        content: " ";
+        /* 1 */
+        display: table;
+        /* 2 */
+    }
+
+    .nodakModal-footer:after {
+        clear: both;
+    }
+
+    .nodakModal-footer:before,
+    .nodakModal-footer:after {
+        content: " ";
+        /* 1 */
+        display: table;
+        /* 2 */
+    }
+
+    .nodakModal-footer:after {
+        clear: both;
+    }
+
+    .nodakModal-footer .btn + .btn {
+        margin-right: 5px;
+        margin-bottom: 0;
+    }
+
+.modal-footer .btn-group .btn + .btn {
+    margin-right: -1px;
+}
+
+.nodakModal-footer .btn-block + .btn-block {
+    margin-right: 0;
+}
+
+.nodakModal-title {
+    margin: 0;
+    line-height: 1.428571429;
+}
+
+@media (min-width: 768px) {
+    .nodakModal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+
+    .nodakModal-content {
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    }
+
+    .nodakModal-sm {
+        width: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .nodakModal-lg {
+        width: 900px;
+    }
+}
+
+
+
+
